@@ -535,3 +535,17 @@ nav ul li a {
 .consult-form button:hover {
   background-color: #09366f;
 }
+.calendar-booking {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.calendar-booking h2 {
+  color: #0c4b8e;
+  margin-bottom: 10px;
+}
+
+.calendar-booking p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
