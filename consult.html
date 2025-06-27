@@ -1,50 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0c4b8e" />
-<link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LOTAL GHANA - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consult With Us - LOTAL GHANA</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- <header>
-  <div class="logo">LOTAL GHANA</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Header -->
+  <header>
+    <div class="logo">LOTAL GHANA</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html" class="active">Consult</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="consult.html">Consult</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-
-  <section class="hero">
-    <h2>Consult LOTAL GHANA</h2>
-    <p>Your trusted media and consultancy brand in Ghana</p>
+  <!-- Consultation Info Section -->
+  <section class="consult-intro">
+    <div class="container">
+      <h1>Media & Tech Consultation</h1>
+      <p>At <strong>LOTAL GHANA</strong>, we provide expert consultation for individuals, businesses, and institutions looking to grow their digital presence, optimize media strategy, or improve technology usage. With deep insights into media platforms like <strong>Google News</strong>, <strong>Microsoft Discover</strong>, and <strong>Phoenix News</strong>, we guide you through building visibility and credibility in the digital space.</p>
+      <p>Whether you're a startup, a blogger, a public figure, or a corporate team — our personalized consultation will help you take the next bold step.</p>
+    </div>
   </section>
 
+  <!-- Areas of Expertise -->
+  <section class="consult-areas">
+    <div class="container">
+      <h2>Areas We Consult In</h2>
+      <ul class="consult-list">
+        <li>✅ Blogging & Content Strategy</li>
+        <li>✅ Social Media Growth & Management</li>
+        <li>✅ Online Brand Building</li>
+        <li>✅ Digital News Publishing</li>
+        <li>✅ Web & App Development Planning</li>
+        <li>✅ Business Profile Setup (Google, Facebook, etc.)</li>
+        <li>✅ Media Advertising & Placement</li>
+        <li>✅ Hardware & Software Setup Advisory</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Consultation Form -->
+  <section class="consult-form">
+    <div class="container">
+      <h2>Request a Consultation</h2>
+      <form action="#" method="post">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+
+        <label for="topic">Topic or Area of Consultation</label>
+        <input type="text" id="topic" name="topic" placeholder="e.g. Branding, Blogging, News Publishing" required>
+
+        <label for="message">Additional Details</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us more about your goals or challenges..."></textarea>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
+    <p>&copy; 2025 LOTAL GHANA. All Rights Reserved.</p>
   </footer>
+
   <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
-  }
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+      }
      if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
-</script>
-
+  </script>
 </body>
 </html>
