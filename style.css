@@ -481,3 +481,57 @@ nav ul li a {
 .service-btn:hover {
   background-color: #08407a;
 }
+.consult-intro,
+.consult-areas,
+.consult-form {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+.consult-intro h1,
+.consult-areas h2,
+.consult-form h2 {
+  color: #0c4b8e;
+  margin-bottom: 20px;
+}
+
+.consult-list {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.1em;
+  line-height: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.consult-form form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.consult-form input,
+.consult-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.consult-form button {
+  background-color: #0c4b8e;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.consult-form button:hover {
+  background-color: #09366f;
+}
