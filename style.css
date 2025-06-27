@@ -254,3 +254,18 @@ blockquote {
     font-size: 1.5em;
   }
 }
+
+#postList button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #0c4b8e;
+  color: white;
+}
+
+#postList button:hover {
+  background-color: #ff6600;
+}
