@@ -27,19 +27,21 @@
 
 </head>
 <body>
-  <header>
-    <h1>LOTAL GHANA</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="consult.html">Consult</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+  <div class="logo">LOTAL GHANA</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="consult.html">Consult</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <section class="blog-section">
     <h2>Latest News & Articles</h2>
@@ -70,5 +72,11 @@
   <footer>
     <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
   </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("open");
+  }
+</script>
+
 </body>
 </html>
