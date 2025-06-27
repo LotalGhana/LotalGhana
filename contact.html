@@ -57,6 +57,16 @@
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
+    window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedService = urlParams.get('service');
+    if (selectedService) {
+      const serviceInput = document.getElementById('serviceInput');
+      if (serviceInput) {
+        serviceInput.value = selectedService;
+      }
+    }
+  });
 </script>
 
 </body>
