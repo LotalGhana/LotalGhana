@@ -64,6 +64,10 @@
         <input type="text" id="topic" name="topic" placeholder="e.g. Branding, Blogging, News Publishing" required>
 
         <label for="message">Additional Details</label>
+        <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/leaderulrichjr/30min'}); return false;" class="service-btn">
+  Book a Consultation
+</button>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
         <textarea id="message" name="message" rows="5" placeholder="Tell us more about your goals or challenges..."></textarea>
 <p id="formSuccess" style="display:none; color:green;">Thanks! We’ve received your request.</p>
         <button type="submit">Submit Request</button>
