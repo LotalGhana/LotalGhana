@@ -269,3 +269,75 @@ blockquote {
 #postList button:hover {
   background-color: #ff6600;
 }
+
+/* Basic header layout */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0c4b8e;
+  color: white;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hide hamburger icon on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100%;
+    background-color: #0c4b8e;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+  }
+
+  nav.open {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+}
