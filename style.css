@@ -341,3 +341,51 @@ nav ul li a {
     margin: 15px 0;
   }
 }
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(45deg, #0c4b8e, #1962ad);
+  color: white;
+}
+.hero .btn {
+  background: #ff6600;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.about, .ratings, .team, .map, .cta {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.rating-box {
+  margin: 15px auto;
+  padding: 15px;
+  background: #f2f2f2;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.team-member {
+  margin: 20px auto;
+  max-width: 300px;
+}
+.team-member img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.cta {
+  background-color: #0c4b8e;
+  color: white;
+}
+.cta .btn {
+  background: #ff6600;
+  color: white;
+  padding: 12px 24px;
+  margin-top: 10px;
+  text-decoration: none;
+}
