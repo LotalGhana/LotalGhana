@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0c4b8e" />
-<link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LOTAL GHANA - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - LOTAL GHANA</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <div class="logo">LOTAL GHANA</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Header -->
+  <header>
+    <div class="logo">LOTAL GHANA</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="consult.html">Consult</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- Services Section -->
+  <section class="services-page">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>At <strong>LOTAL GHANA</strong>, we provide a range of digital, media, and tech services tailored for individuals, businesses, and organizations. Below are some of the key services we offer:</p>
 
-  <section class="hero">
-    <h2>Services at LOTAL GHANA</h2>
-    <p>Your trusted media and consultancy brand in Ghana</p>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>📝 Blogging</h3>
+          <p>We create engaging and informative blog posts that keep your audience informed and inspired.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>📱 Social Media Management</h3>
+          <p>Grow your online presence with our professional content and audience engagement strategies.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>📰 Article Publication</h3>
+          <p>Get your stories and content published on top platforms like Google News and Phoenix News.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>💻 Web App Development</h3>
+          <p>We build modern, user-friendly websites and web applications tailored to your brand goals.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>🧰 Hardware & Software Installation</h3>
+          <p>From tech setups to software installations, we ensure you’re equipped and running smoothly.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>📚 Project Works</h3>
+          <p>We assist students and professionals with research, tech, media, and IT-based projects.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>🌐 Online Business Profile Creation</h3>
+          <p>Boost your business image with well-branded online profiles on Google, Facebook, LinkedIn, and more.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>📊 Professional Presentations</h3>
+          <p>We design clean, impactful PowerPoint slides for pitches, reports, and academic needs.</p>
+        </div>
+
+        <div class="service-box">
+          <h3>📸 Media & Digital Content</h3>
+          <p>We also create multimedia content — audio, video, graphics — to support marketing and communication needs.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
+    <p>&copy; 2025 LOTAL GHANA. All Rights Reserved.</p>
   </footer>
+
   <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
-  }
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+      }
      if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
-</script>
 
+  </script>
 </body>
 </html>
