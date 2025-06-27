@@ -2,51 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LOTAL GHANA - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About LOTAL GHANA</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0c4b8e" />
-<link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
 </head>
 <body>
- <header>
-  <div class="logo">LOTAL GHANA</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Header -->
+  <header>
+    <div class="logo">LOTAL GHANA</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="consult.html">Consult</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- About Section -->
+  <section class="about-page">
+    <div class="container">
+      <h1>About LOTAL GHANA</h1>
+      <p>
+        <strong>LOTAL GHANA</strong> is a news and media platform based in Ghana, focusing primarily on <strong>technology-related news, internet tips</strong>, and <strong>educational content about information technology</strong>.
+      </p>
+      <p>
+        In addition to its editorial content, Lotal Ghana serves as an <strong>advertising forum</strong>, helping brands gain visibility across platforms such as <strong>Google News, Phoenix News, and Microsoft Discover</strong>.
+      </p>
+      <p>
+        The platform is proudly owned and managed by <strong>Alexander Antobre Dwumah</strong>, a well-known Ghanaian blogger and a supporter of motivational speaker <strong>Dayo Akins (Dayodman)</strong>.
+      </p>
+      <p>
+        Lotal Ghana has a <strong>strong digital presence</strong> with <strong>46,528 Facebook likes</strong> and an active YouTube channel, constantly engaging its tech-focused audience.
+      </p>
+      <p>
+        In recognition of its contributions to innovation in media, Lotal Ghana was awarded the prestigious title of <strong>"Most Innovative News & Media Platform 2023 - Ghana"</strong> by MEA Markets.
+      </p>
+    </div>
+  </section>
 
-
-  <section class="hero">
-  <h2>About LOTAL GHANA</h2>
-  <p>We are a media and news company empowering Ghanaians through impactful stories and expert consulting.</p>
-</section>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
+    <p>&copy; 2025 LOTAL GHANA. All Rights Reserved.</p>
   </footer>
-  <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
-  }
 
-  if ('serviceWorker' in navigator) {
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+    if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
 
-</script>
-
+  </script>
 </body>
 </html>
