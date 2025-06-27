@@ -1,52 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0c4b8e" />
-<link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="LOTAL GHANA is a media and news brand delivering trusted news, engaging blogs, and expert consulting services across Ghana." />
-  <meta name="keywords" content="LOTAL Ghana, Ghana news, media company, blog, news portal, consulting, Alexander Antobre Dwumah, Citinewsroom, Adomonline, Ghanasoccernet, Graphic Online, Gossip, The Verge, Technology, Ghana journalism" />
-  <meta name="author" content="LOTAL GHANA - Alexander Antobre Dwumah" />
-  <title>LOTAL GHANA - Trusted News & Media Consulting in Ghana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to LOTAL GHANA</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
- <header>
-  <div class="logo">LOTAL GHANA</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Header -->
+  <header>
+    <div class="logo">LOTAL GHANA</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="consult.html">Consult</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+  <!-- Hero Section -->
   <section class="hero">
-    <h2>Welcome to LOTAL GHANA</h2>
-    <p>Your trusted media and consultancy brand in Ghana</p>
+    <h1>Welcome to LOTAL GHANA</h1>
+    <p>Your trusted source for news, insights, and media consulting in Ghana.</p>
+    <a href="services.html" class="btn">Explore Our Services</a>
   </section>
 
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>LOTAL GHANA is a leading media and news brand dedicated to informing, educating, and empowering the Ghanaian public. We combine journalism, digital strategy, and media consulting to serve individuals and organizations.</p>
+  </section>
+
+  <!-- Ratings -->
+  <section class="ratings">
+    <h2>What Our Clients Say</h2>
+    <div class="rating-box">
+      <p>"Professional and reliable service!"</p>
+      <strong>★★★★★</strong><br><small>- Akosua M.</small>
+    </div>
+    <div class="rating-box">
+      <p>"Helped us grow our brand awareness massively."</p>
+      <strong>★★★★★</strong><br><small>- Kwame A.</small>
+    </div>
+    <div class="rating-box">
+      <p>"Their blog is a daily read. Informative and clean."</p>
+      <strong>★★★★☆</strong><br><small>- Nana Y.</small>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Meet the Team</h2>
+    <div class="team-member">
+      <img src="images/team1.jpg" alt="Team Member">
+      <h3>Alexander Dwumah</h3>
+      <p>Founder & Media Strategist</p>
+    </div>
+    <div class="team-member">
+      <img src="images/team2.jpg" alt="Team Member">
+      <h3>Linda Osei</h3>
+      <p>Content & Communications Lead</p>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <section class="map">
+    <h2>Find Us</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31710.234499320264!2d-1.6232417848791177!3d6.688896117476886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdc8d90e3f5c3c4%3A0x35f2bc6b7b3c3c9!2sKumasi!5e0!3m2!1sen!2sgh!4v1622455481250!5m2!1sen!2sgh"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Ready to Work With Us?</h2>
+    <a href="contact.html" class="btn">Contact Us Today</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
+    <p>&copy; 2025 LOTAL GHANA. All Rights Reserved.</p>
   </footer>
+
   <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
-  }
-     if ('serviceWorker' in navigator) {
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+    if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
-</script>
 
+  </script>
 </body>
 </html>
