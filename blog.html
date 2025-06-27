@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog - LOTAL GHANA</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  db.collection("posts").orderBy("createdAt", "desc").get()
+    .then(snapshot => {
+      const container = document.getElementById("blogContainer");
+      snapshot.forEach(doc => {
+        const post = doc.data();
+        const div = document.createElement("div");
+        div.className = "blog-post";
+        div.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.content.substring(0, 100)}...</p>
+        `;
+        container.appendChild(div);
+      });
+    });
+</script>
+
 </head>
 <body>
   <header>
