@@ -389,3 +389,30 @@ nav ul li a {
   margin-top: 10px;
   text-decoration: none;
 }
+.about-page {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.about-page .container {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+.about-page h1 {
+  text-align: center;
+  color: #0c4b8e;
+  margin-bottom: 30px;
+}
+
+.about-page p {
+  font-size: 1.1em;
+  line-height: 1.8em;
+  margin-bottom: 20px;
+}
+
+.about-page strong {
+  color: #0c4b8e;
+}
