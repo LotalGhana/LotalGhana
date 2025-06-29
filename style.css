@@ -575,3 +575,56 @@ nav ul li a {
 .social-links a.twitter:hover { background: #1da1f2; }
 .social-links a.instagram:hover { background: #e1306c; }
 .social-links a.youtube:hover { background: #ff0000; }
+
+.floating-social-bar {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.floating-social-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #0c4b8e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0 5px 5px 0;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.floating-social-bar a:hover {
+  background-color: #ff5722;
+  transform: translateX(5px);
+}
+
+/* Platform-specific colors on hover (optional) */
+.floating-social-bar a.facebook:hover { background-color: #3b5998; }
+.floating-social-bar a.twitter:hover { background-color: #1da1f2; }
+.floating-social-bar a.instagram:hover { background-color: #e1306c; }
+.floating-social-bar a.youtube:hover { background-color: #ff0000; }
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .floating-social-bar {
+    top: auto;
+    bottom: 15%;
+    left: 10px;
+    flex-direction: row;
+  }
+
+  .floating-social-bar a {
+    width: 38px;
+    height: 38px;
+    margin-right: 5px;
+    border-radius: 50%;
+  }
+}
