@@ -136,6 +136,20 @@
   firebase.initializeApp(firebaseConfig);
   const messaging = firebase.messaging();
 
+    messaging
+  .requestPermission()
+  .then(() => {
+    console.log("Notification permission granted.");
+    return messaging.getToken({ vapidKey: "YOUR_VAPID_PUBLIC_KEY" });
+  })
+  .then((token) => {
+    console.log("FCM Token:", token);
+    // Optionally save to database for future messaging
+  })
+  .catch((err) => {
+    console.error("Unable to get permission to notify.", err);
+  });
+
   </script>
 </body>
 </html>
