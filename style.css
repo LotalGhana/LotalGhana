@@ -628,3 +628,40 @@ nav ul li a {
     border-radius: 50%;
   }
 }
+.notify-me-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0c4b8e;
+  padding: 10px 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: white;
+}
+
+.notify-hover-text {
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.notify-me-box:hover .notify-hover-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#notifyButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
