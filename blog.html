@@ -89,7 +89,47 @@
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
- 
+
+    async function loadAllBlogPosts() {
+  const rssUrl = 'https://alexanderantobre.blogspot.com/feeds/posts/default?alt=json&max-results=100'; // max Blogger allows
+
+  try {
+    const res = await fetch(rssUrl);
+    const data = await res.json();
+    const entries = data.feed.entry;
+    const wrapper = document.getElementById('blogWrapper');
+    wrapper.innerHTML = '';
+
+    entries.forEach(entry => {
+      const title = entry.title.$t;
+      const link = entry.link.find(l => l.rel === "alternate").href;
+      const content = entry.content.$t;
+      const snippet = content.replace(/<[^>]*>?/gm, '').slice(0, 120) + "...";
+
+      const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+      const imgSrc = imgMatch ? imgMatch[1] : "https://via.placeholder.com/300x180";
+
+      const postHTML = `
+        <div class="blog-card">
+          <img src="${imgSrc}" alt="${title}">
+          <div class="content">
+            <h3>${title}</h3>
+            <p>${snippet}</p>
+            <a href="${link}" target="_blank">Read More</a>
+          </div>
+        </div>
+      `;
+
+      wrapper.innerHTML += postHTML;
+    });
+  } catch (err) {
+    document.getElementById('blogWrapper').innerHTML = "<p>Error loading blog posts.</p>";
+    console.error("Error fetching blog feed:", err);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', loadAllBlogPosts);
+
 </script>
 </body>
 </html>
