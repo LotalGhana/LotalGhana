@@ -130,7 +130,47 @@
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
-   
+
+     async function loadBlogPosts() {
+    const rssUrl = "https://alexanderantobre.blogspot.com/feeds/posts/default?alt=json";
+    try {
+      const res = await fetch(rssUrl);
+      const data = await res.json();
+      const entries = data.feed.entry.slice(0, 4); // Show 4 latest
+
+      const container = document.getElementById("blogContainer");
+      container.innerHTML = "";
+
+      entries.forEach(entry => {
+        const title = entry.title.$t;
+        const link = entry.link.find(l => l.rel === "alternate").href;
+        const content = entry.content.$t;
+        const snippet = content.replace(/<[^>]*>?/gm, '').slice(0, 100) + "...";
+
+        const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+        const imgSrc = imgMatch ? imgMatch[1] : "https://via.placeholder.com/300";
+
+        const html = `
+          <div class="blog-post">
+            <img src="${imgSrc}" alt="${title}" />
+            <h4>${title}</h4>
+            <div class="overlay">
+              <p>${snippet}</p>
+              <a href="${link}" target="_blank" style="color:#fff;text-decoration:underline;">Read More</a>
+            </div>
+          </div>
+        `;
+        container.innerHTML += html;
+      });
+
+    } catch (err) {
+      console.error("Error loading blog:", err);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", loadBlogPosts);
+
+
   </script>
  
 </body>
