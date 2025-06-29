@@ -109,7 +109,17 @@
       .then(reg => console.log("✅ Service Worker registered", reg))
       .catch(err => console.error("❌ SW registration failed", err));
   }
+ const firebaseConfig = {
+  apiKey: "AIzaSyARq-cvXbo6y6aWUQwJ-D9vGHukLRCKd7s",
+  authDomain: "lotalghanacms.firebaseapp.com",
+  projectId: "lotalghanacms",
+  storageBucket: "lotalghanacms.firebasestorage.app",
+  messagingSenderId: "1059279214193",
+  appId: "1:1059279214193:web:a8f10ab98ffb3c90576dd0"
+  };
 
+  firebase.initializeApp(firebaseConfig);
+  const messaging = firebase.messaging();
 
 </script>
 
