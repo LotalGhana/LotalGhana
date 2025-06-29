@@ -549,3 +549,29 @@ nav ul li a {
   margin-bottom: 20px;
   font-size: 1.1em;
 }
+.social-links {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #ffffff;
+  background: #0c4b8e;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  background: #ff5722;
+  color: #fff;
+}
+.social-links a.facebook:hover { background: #3b5998; }
+.social-links a.twitter:hover { background: #1da1f2; }
+.social-links a.instagram:hover { background: #e1306c; }
+.social-links a.youtube:hover { background: #ff0000; }
