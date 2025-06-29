@@ -143,6 +143,39 @@
     🔔 Notify Me
   </button>
 </div>
+ const firebaseConfig = {
+    apiKey: "AIzaSyARq-cvXbo6y6aWUQwJ-D9vGHukLRCKd7s",
+  authDomain: "lotalghanacms.firebaseapp.com",
+  projectId: "lotalghanacms",
+  storageBucket: "lotalghanacms.firebasestorage.app",
+  messagingSenderId: "1059279214193",
+  appId: "1:1059279214193:web:a8f10ab98ffb3c90576dd0"
+  };
 
+  firebase.initializeApp(firebaseConfig);
+  const messaging = firebase.messaging();
+
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      .then(reg => {
+        console.log("Service Worker Registered", reg);
+
+        // Button click
+        document.getElementById('notifyButton').addEventListener('click', () => {
+          messaging.requestPermission()
+            .then(() => messaging.getToken({ vapidKey: 'BLGOLJxI368_mwtREURU_rPEEsW12XmFVlzsWlViVhcBiKwIPSJXk273f8FPngrxEbhrwR_HGIPzKa2C1d0wYxE' }))
+            .then((token) => {
+              alert("You're now subscribed to notifications!");
+              console.log('FCM Token:', token);
+              // TODO: Optionally send token to Firestore or your DB
+            })
+            .catch((err) => {
+              console.error('Notification permission denied:', err);
+              alert("You denied permission or there's an error.");
+            });
+        });
+      });
+  }
 </body>
 </html>
