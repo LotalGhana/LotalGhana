@@ -60,44 +60,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>LOTAL GHANA</h1>
-    <p>Your trusted source for news, insights, and media consulting in Ghana.</p>
-    <a href="services.html" class="btn">Explore Our Services</a>
-  </section>
+  <h1 class="animate-slide">LOTAL GHANA</h1>
+  <p class="animate-fade">Your trusted source for news, insights, and media consulting in Ghana.</p>
+  <a href="services.html" class="btn btn-glow">Explore Our Services</a>
+</section>
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Us</h2>
-    <p>LOTAL GHANA is a leading media and news brand dedicated to informing, educating, and empowering the Ghanaian public. We combine journalism, digital strategy, and media consulting to serve individuals and organizations.</p>
-  </section>
+<!-- About Section -->
+<section class="about fade-in">
+  <h2>About Us</h2>
+  <p>LOTAL GHANA is a leading media and news brand dedicated to informing, educating, and empowering the Ghanaian public. We combine journalism, digital strategy, and media consulting to serve individuals and organizations.</p>
+</section>
 
-  <!-- Ratings -->
-  <section class="ratings">
-    <h2>What Our Clients Say</h2>
-    <div class="rating-box">
-      <p>"Professional and reliable service!"</p>
-      <strong>★★★★★</strong><br><small>- Akosua M.</small>
-    </div>
-    <div class="rating-box">
-      <p>"Helped us grow our brand awareness massively."</p>
-      <strong>★★★★★</strong><br><small>- Kwame A.</small>
-    </div>
-    <div class="rating-box">
-      <p>"Their blog is a daily read. Informative and clean."</p>
-      <strong>★★★★☆</strong><br><small>- Nana Y.</small>
-    </div>
-  </section>
+<!-- Ratings -->
+<section class="ratings fade-in">
+  <h2>What Our Clients Say</h2>
+  <div class="rating-box">
+    <p>"Professional and reliable service!"</p>
+    <strong>★★★★★</strong><br><small>- Akosua M.</small>
+  </div>
+  <div class="rating-box">
+    <p>"Helped us grow our brand awareness massively."</p>
+    <strong>★★★★★</strong><br><small>- Kwame A.</small>
+  </div>
+  <div class="rating-box">
+    <p>"Their blog is a daily read. Informative and clean."</p>
+    <strong>★★★★☆</strong><br><small>- Nana Y.</small>
+  </div>
+</section>
 
-  <!-- Team Section -->
-  <section class="team">
-    <h2>Meet the Team</h2>
-    <div class="team-member">
-      <img src="images/AlexanderPro.JPG" alt="Team Member">
-      <h3>Alexander Antobre Dwumah</h3>
-      <p>Founder & Media Strategist</p>
-    </div>
-    
-  </section>
+<!-- Team Section -->
+<section class="team fade-in">
+  <h2>Meet the Team</h2>
+  <div class="team-member hover-zoom">
+    <img src="images/AlexanderPro.JPG" alt="Team Member">
+    <h3>Alexander Antobre Dwumah</h3>
+    <p>Founder & Media Strategist</p>
+  </div>
+</section>
 
 
   <!-- Google Map -->
@@ -108,11 +107,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <h2>Ready to Work With Us?</h2>
-    <a href="contact.html" class="btn">Contact Us Today</a>
-  </section>
+<!-- Call to Action -->
+<section class="cta fade-in">
+  <h2>Ready to Work With Us?</h2>
+  <a href="contact.html" class="btn btn-glow">Contact Us Today</a>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -125,6 +124,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>&copy; 2025 LOTAL GHANA. All Rights Reserved.</p>
   </footer>
 
+<script>
+  // Intersection Observer for fade-in elements
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          obs.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, { threshold: 0.2 }); // Trigger when 20% visible
+
+    document.querySelectorAll(".fade-in").forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+ 
   <script>
     function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("open");
@@ -179,6 +197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  
 </body>
 </html>
+
 
 
 
