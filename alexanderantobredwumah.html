@@ -3,13 +3,7 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6951448760356673"
      crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-  document.getElementById("download").addEventListener("click", () => {
-    const element = document.body; // you can make it target a specific div
-    html2pdf().from(element).save("Alexander_CV.pdf");
-  });
-</script>
+
   <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -36,40 +30,7 @@
   <link rel="icon" href="images/AlexanderPro.JPG" type="image/png">
   <link rel="stylesheet" href="styles.css"/>
   <script defer src="scripts.js"></script>
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      background: #f9f9f9;
-      padding: 100px;
-    }
 
-    .download-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(135deg, #e63946, #d90429);
-      border: none;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
-
-    .download-btn:hover {
-      background: linear-gradient(135deg, #d90429, #b51717);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .download-btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -184,5 +145,12 @@
   <footer>
     <p>&copy; 2025 Alexander Antobre Dwumah. All rights reserved.</p>
   </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  document.getElementById("download").addEventListener("click", () => {
+    const element = document.body; // you can make it target a specific div
+    html2pdf().from(element).save("Alexander_CV.pdf");
+  });
+</script>
 </body>
 </html>
