@@ -151,28 +151,39 @@ a:hover {
   }
 }
 
+
 .download-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(135deg, #e63946, #d90429);
-      border: none;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff0000, #b00020);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(176, 0, 32, 0.4);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
 
-    .download-btn:hover {
-      background: linear-gradient(135deg, #d90429, #b51717);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+.download-btn:hover {
+  background: linear-gradient(135deg, #b00020, #000);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
 
-    .download-btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+.download-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Download icon styling */
+.download-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
