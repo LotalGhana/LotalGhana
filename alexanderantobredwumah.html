@@ -3,6 +3,13 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6951448760356673"
      crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  document.getElementById("download").addEventListener("click", () => {
+    const element = document.body; // you can make it target a specific div
+    html2pdf().from(element).save("Alexander_CV.pdf");
+  });
+</script>
   <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -45,7 +52,7 @@
     <a href="#volunteering">Volunteering</a>
     <a href="#contact">Contact</a>
   </nav>
-
+<button id="download">Download My CV</button>
   <section id="about">
   <h2>About Me</h2>
   <div class="about-container">
