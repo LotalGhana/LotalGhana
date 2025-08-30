@@ -150,7 +150,7 @@ a:hover {
     padding: 1.5rem 1rem;
   }
 }
-.download-btn {
+.download {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -171,20 +171,20 @@ a:hover {
 }
 
 /* Hover effect */
-.download-btn:hover {
+.download:hover {
   background: linear-gradient(135deg, #b00020, #000);
   transform: translateY(-4px) scale(1.08);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Active click effect */
-.download-btn:active {
+.download:active {
   transform: scale(0.96);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 /* Glow animation */
-.download-btn::before {
+.download::before {
   content: "";
   position: absolute;
   top: -50%;
@@ -204,13 +204,45 @@ a:hover {
 }
 
 /* Download icon styling */
-.download-btn svg {
+.download svg {
   width: 22px;
   height: 22px;
   fill: #fff;
   transition: transform 0.3s ease;
 }
 
-.download-btn:hover svg {
+.download:hover svg {
   transform: translateY(3px); /* little bounce effect */
+}
+
+/* Container to center the image */
+.photo-container {
+  text-align: center;
+}
+
+/* Profile photo styling */
+.profile-photo {
+  width: 220px;             /* Adjust size */
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;       /* Circular photo */
+  border: 6px solid #b00020; /* Red brand border */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  
+  /* Animation */
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.profile-photo:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
