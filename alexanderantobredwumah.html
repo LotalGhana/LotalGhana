@@ -30,7 +30,73 @@
   <link rel="icon" href="images/AlexanderPro.JPG" type="image/png">
   <link rel="stylesheet" href="styles.css"/>
   <script defer src="scripts.js"></script>
+<style>
+  .download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff1e1e, #b00020);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(176, 0, 32, 0.4);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
 
+/* Hover effect */
+.download-btn:hover {
+  background: linear-gradient(135deg, #b00020, #000);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Active click effect */
+.download-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Glow animation */
+.download-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 30%);
+  animation: pulse 3s infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* Download icon styling */
+.download-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover svg {
+  transform: translateY(3px); /* little bounce effect */
+}
+
+</style>
 </head>
 <body>
   <header>
@@ -47,7 +113,9 @@
     <a href="#volunteering">Volunteering</a>
     <a href="#contact">Contact</a>
   </nav>
-<button id="download" align="center" >Download My CV</button>
+<div style="text-align:center; margin-top:100px;">
+    <button id="download">⬇ Download My CV</button>
+  </div>
   <section id="about">
   <h2>About Me</h2>
   <div class="about-container">
