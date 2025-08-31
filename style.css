@@ -894,3 +894,17 @@ footer p {
   opacity: 1;
   transform: translateY(0);
 }
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.footer-links a {
+  color: #fff;   /* Change to match your footer theme */
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
