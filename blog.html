@@ -1,137 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <link rel="manifest" href="manifest.json">
-<meta name="description" content="Blog posts from Alexander Antobre of Lotal Ghana">
-<meta name="theme-color" content="#0c4b8e" />
-<link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Updates - LOTAL GHANA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Blog posts from Alexander Antobre of Lotal Ghana">
+  <meta name="theme-color" content="#0c4b8e" />
+  <link rel="icon" href="icons/LotalGhana.jpg" type="image/png">
   <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
   <script>
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+    // ✅ Use the SAME Firebase config as admin.html
+    const firebaseConfig = {
+      apiKey: "AIzaSyARq-cvXbo6y6aWUQwJ-D9vGHukLRCKd7s",
+      authDomain: "lotalghanacms.firebaseapp.com",
+      projectId: "lotalghanacms",
+      storageBucket: "lotalghanacms.appspot.com",
+      messagingSenderId: "1059279214193",
+      appId: "1:1059279214193:web:a8f10ab98ffb3c90576dd0"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-  db.collection("posts").orderBy("createdAt", "desc").get()
-    .then(snapshot => {
-      const container = document.getElementById("blogContainer");
-      snapshot.forEach(doc => {
-        const post = doc.data();
-        const div = document.createElement("div");
-        div.className = "blog-post";
-        div.innerHTML = `
-          <h3>${post.title}</h3>
-          <p>${post.content.substring(0, 100)}...</p>
-        `;
-        container.appendChild(div);
-      });
-    });
+    // ✅ Load blog posts from Firestore
+    function loadBlogPosts() {
+      db.collection("posts").orderBy("createdAt", "desc").get()
+        .then(snapshot => {
+          const wrapper = document.getElementById("blogWrapper");
+          wrapper.innerHTML = "";
+          
+          if (snapshot.empty) {
+            wrapper.innerHTML = "<p>No posts available yet.</p>";
+            return;
+          }
 
-    async function loadAllBlogPosts() {
-  const rssUrl = 'https://alexanderantobre.blogspot.com/feeds/posts/default?alt=json&max-results=100'; // max Blogger allows
+          snapshot.forEach(doc => {
+            const post = doc.data();
+            const snippet = post.content 
+              ? post.content.substring(0, 120) + "..." 
+              : "No content available";
 
-  try {
-    const res = await fetch(rssUrl);
-    const data = await res.json();
-    const entries = data.feed.entry;
-    const wrapper = document.getElementById('blogWrapper');
-    wrapper.innerHTML = '';
+            const imgSrc = post.imageUrl 
+              ? post.imageUrl 
+              : "https://via.placeholder.com/300x180?text=No+Image";
 
-    entries.forEach(entry => {
-      const title = entry.title.$t;
-      const link = entry.link.find(l => l.rel === "alternate").href;
-      const content = entry.content.$t;
-      const snippet = content.replace(/<[^>]*>?/gm, '').slice(0, 120) + "...";
+            const postHTML = `
+              <div class="blog-card">
+                <img src="${imgSrc}" alt="${post.title}">
+                <div class="content">
+                  <h3>${post.title}</h3>
+                  <p>${snippet}</p>
+                  <a href="viewpost.html?id=${doc.id}">Read More</a>
+                </div>
+              </div>
+            `;
+            wrapper.innerHTML += postHTML;
+          });
+        })
+        .catch(err => {
+          document.getElementById("blogWrapper").innerHTML = "<p>Error loading posts.</p>";
+          console.error("Error fetching Firestore posts:", err);
+        });
+    }
 
-      const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-      const imgSrc = imgMatch ? imgMatch[1] : "https://via.placeholder.com/300x180";
+    window.addEventListener("DOMContentLoaded", loadBlogPosts);
+  </script>
 
-      const postHTML = `
-        <div class="blog-card">
-          <img src="${imgSrc}" alt="${title}">
-          <div class="content">
-            <h3>${title}</h3>
-            <p>${snippet}</p>
-            <a href="${link}" target="_blank">Read More</a>
-          </div>
-        </div>
-      `;
-
-      wrapper.innerHTML += postHTML;
-    });
-  } catch (err) {
-    document.getElementById('blogWrapper').innerHTML = "<p>Error loading blog posts.</p>";
-    console.error("Error fetching blog feed:", err);
-  }
-}
-
-window.addEventListener('DOMContentLoaded', loadAllBlogPosts);
-
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Quick styling for blog cards */
+    .blog-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      max-width: 700px;
+    }
+    .blog-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .blog-card .content {
+      padding: 15px;
+    }
+    .blog-card h3 {
+      margin: 0 0 10px;
+    }
+    .blog-card p {
+      color: #444;
+    }
+    .blog-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #b00020;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .blog-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <!-- Floating Social Bar -->
   <div class="floating-social-bar">
-  <a href="https://facebook.com/lotalghana" target="_blank" class="social facebook" title="Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://twitter.com/lotalghana" target="_blank" class="social twitter" title="Twitter">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://instagram.com/lotalghana" target="_blank" class="social instagram" title="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://youtube.com/@lotalghana" target="_blank" class="social youtube" title="YouTube">
-    <i class="fab fa-youtube"></i>
-  </a>
-</div>
- <header>
-  <div class="logo">LOTAL GHANA</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <a href="https://facebook.com/lotalghana" target="_blank" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/lotalghana" target="_blank" class="social twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com/lotalghana" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/@lotalghana" target="_blank" class="social youtube"><i class="fab fa-youtube"></i></a>
+  </div>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="https://lotalhub.blogspot.com/">Blog</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="consult.html">Consult</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="blog.html">Updates</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="logo">LOTAL GHANA</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Updates</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  < <section id="blog-list">
+  <!-- Blog Posts -->
+  <section id="blog-list">
     <div class="blog-wrapper" id="blogWrapper">
       <p>Loading posts...</p>
     </div>
   </section>
 
-  <footer>
-      <div class="social-links">
+  <!-- Footer -->
+   <footer>
+  <div class="social-links">
     <a href="https://facebook.com/lotalghana" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="https://twitter.com/lotalghana" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://instagram.com/lotalghana" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://youtube.com/@lotalghana" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
   </div>
-    <p>&copy; 2025 LOTAL GHANA. All rights reserved.</p>
-  </footer>
-  <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
-  }
-    
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(reg => console.log("✅ Service Worker registered", reg))
-      .catch(err => console.error("❌ SW registration failed", err));
-  }
 
-   
-</script>
+  <div class="footer-links">
+    <a href="index.html">Home</a> | 
+    <a href="about.html">About</a> | 
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+
+  <p>&copy; 2025 LOTAL GHANA. All Rights Reserved</p>
+</footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
 </body>
 </html>
