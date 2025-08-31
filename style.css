@@ -397,3 +397,129 @@ textarea {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* General form section */
+.contact-section, .consult-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: url('images/bg-pattern.jpg') no-repeat center/cover; /* optional background */
+  min-height: 100vh;
+}
+
+/* Container (glass effect card) */
+.contact-section form,
+.consult-form form {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1); /* translucent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+/* Headings */
+.contact-section h2,
+.consult-form h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* Labels */
+.contact-section label,
+.consult-form label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Inputs & Textareas */
+.contact-section input,
+.contact-section textarea,
+.consult-form input,
+.consult-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder,
+.consult-form input::placeholder,
+.consult-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus,
+.consult-form input:focus,
+.consult-form textarea:focus {
+  border-color: #ff0033;
+  box-shadow: 0 0 12px rgba(255, 0, 51, 0.4);
+}
+
+/* Buttons */
+.contact-section button,
+.consult-form button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff0033, #000);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-section button:hover,
+.consult-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 0, 51, 0.4);
+}
+
+/* Special secondary button (Calendly) */
+.service-btn {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.service-btn:hover {
+  background: rgba(255, 0, 51, 0.5) !important;
+  transform: scale(1.05);
+}
+
+/* Success message */
+#formSuccess {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
